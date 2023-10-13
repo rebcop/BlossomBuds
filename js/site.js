@@ -13,6 +13,8 @@ function getValues() {
     // get Stop Value 
     let stopValue = document.getElementById('stopValue').value;
 
+    let colNum = 2;
+
     // change string values to number
     blossomValue = parseInt(blossomValue);
     budsValue = parseInt(budsValue);
@@ -22,7 +24,7 @@ function getValues() {
 
     if (Number.isInteger(blossomValue) && Number.isInteger(budsValue) && Number.isInteger(startValue) && Number.isInteger(stopValue) && stopValue > startValue) {
 
-        let blossomBuds = generateBlossomBuds(blossomValue, budsValue, startValue, stopValue);
+        let blossomBuds = generateBlossomBuds(blossomValue, budsValue, startValue, stopValue, colNum);
 
         displayBlossomBuds(blossomBuds);
 
@@ -44,35 +46,50 @@ function getValues() {
 // else if number divisible by Blossom Value display 'Blossom'
 // else if number divisible by Buds Value display 'Buds'
 // else add number
-function generateBlossomBuds(blossomValue, budsValue, startValue, stopValue) {
+function generateBlossomBuds(blossomValue, budsValue, startValue, stopValue, colNum) {
 
     // array to hold values
     let blossomBuds = [];
-
+    let blossomBudsRow = [];
+    let countCol = 1;
+    
     // generate the numbers 1-100 replacing values respectively
     for (let n = startValue; n <= stopValue; n++) {
 
-        if ( n % blossomValue == 0 && n % budsValue == 0 ) {
+            if ( n % blossomValue == 0 && n % budsValue == 0 ) {
 
-            // Add 'BlossomBuds' instead of number
-            blossomBuds.push('BlossomBuds');
+                // Add 'BlossomBuds' instead of number
+                blossomBudsRow.push('BlossomBuds');
+    
+            } else if ( n % blossomValue == 0) {
+    
+                // Add 'Blossom' instead of number
+                blossomBudsRow.push('Blossom');
 
-        } else if ( n % blossomValue == 0) {
+    
+            } else if ( n % budsValue == 0 ) {
+    
+                // Add 'Buds' instead of number
+                blossomBudsRow.push('Buds');
 
-            // Add 'Blossom' instead of number
-            blossomBuds.push('Blossom');
+            } else {
+                
+                // Add number
+                blossomBudsRow.push(n);
+            }
 
-        } else if ( n % budsValue == 0 ) {
-
-            // Add 'Buds' instead of number
-            blossomBuds.push('Buds');
-
-        } else {
             
-            // Add number
-            blossomBuds.push(n);
-        }
+            if (countCol == colNum) {
+                countCol = 1;
+                blossomBuds.push(blossomBudsRow);
+                blossomBudsRow = [];
 
+            } else if (n == stopValue)  {
+                blossomBuds.push(blossomBudsRow);
+            } else {
+                countCol++;
+            }
+        
     }
 
     return blossomBuds;
@@ -84,55 +101,61 @@ function displayBlossomBuds(blossomBuds) {
 
     // declare variables
     let blossomBudsHtml = '';
+    
     let className = '';
-    let blossomBudsCellHtml = '';
 
     // loop over array to add values in array to html
     // check if value is 'BlossomBuds' change class to 'blossom-buds' & add html cell contents
     // if value is 'Blossom' change class to 'blossom' & add html cell contents
     // if value is 'buds' change class to 'buds' & add html cell contents
 
-    for (i = 0; i < blossomBuds.length; i++) {
+    for (let row = 0; row < blossomBuds.length; row++) {
 
-        if ( blossomBuds[i] == 'BlossomBuds') {
+        let blossomBudsHtmlRow = '';
 
-            // specify class name for cells with 'BlossomBuds' value
-            className = 'blossom-buds';
+        for (let col = 0; col < blossomBuds[row].length; col++) {
 
-            // specify value of cell along with additional html needed for cell
-            blossomBudsCellHtml = `<i class="bi bi-flower3"></i>${blossomBuds[i]}<i class="bi bi-flower3"></i>`;
+            if ( blossomBuds[row][col] == 'BlossomBuds') {
 
-        } else if ( blossomBuds[i] == 'Blossom' ) {
+                // specify class name for cells with 'BlossomBuds' value
+                className = 'blossom-buds';
+    
+                // specify value of cell along with additional html needed for cell
+                blossomBudsCellHtml = `<i class="bi bi-flower3"></i>${blossomBuds[row][col]}<i class="bi bi-flower3"></i>`;
+    
+            } else if ( blossomBuds[row][col] == 'Blossom' ) {
+    
+                // specify class name for cells with 'Blossom' value
+                className = 'blossom';
+    
+                // specify value of cell along with additional html needed for cell
+                blossomBudsCellHtml = blossomBuds[row][col];
+    
+            } else if ( blossomBuds[row][col] == 'Buds' ) {
+    
+                // specify class name for cells with 'Buds' value
+                className = 'buds';
+    
+                // specify value of cell along with additional html needed for cell
+                blossomBudsCellHtml = blossomBuds[row][col];
+    
+            } else {
+    
+                // specify class name for all other cells
+                className = '';
+    
+                // specify value of cell along with additional html needed for cell
+                blossomBudsCellHtml = blossomBuds[row][col];
+            }
 
-            // specify class name for cells with 'Blossom' value
-            className = 'blossom';
+            blossomBudsHtmlRow += `<td class="${className}">${blossomBudsCellHtml}</td>`;
 
-            // specify value of cell along with additional html needed for cell
-            blossomBudsCellHtml = blossomBuds[i];
-
-        } else if ( blossomBuds[i] == 'Buds' ) {
-
-            // specify class name for cells with 'Buds' value
-            className = 'buds';
-
-            // specify value of cell along with additional html needed for cell
-            blossomBudsCellHtml = blossomBuds[i];
-
-        } else {
-
-            // specify class name for all other cells
-            className = '';
-
-            // specify value of cell along with additional html needed for cell
-            blossomBudsCellHtml = blossomBuds[i];
         }
 
-        blossomBudsHtml += `<tr><td class="${className}">${blossomBudsCellHtml}</td></tr>`;
+        blossomBudsHtml += `<tr>${blossomBudsHtmlRow}</tr>`;
 
     }
 
-    
-    
     // get the innerHTML of the element we want to put it in and update it
     document.getElementById('results').innerHTML = blossomBudsHtml;
 
