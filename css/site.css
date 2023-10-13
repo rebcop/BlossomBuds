@@ -59,6 +59,26 @@ footer {
     box-shadow ; */
 }
 
+#results .blossom {
+    background-color: hsla(0, 57%, 60%, .5);
+    color: hsla(0, 57%, 60%, 1);
+    font-weight: bolder;
+}
+
+#results .buds {
+    background-color: hsla(125, 48%, 48%, .25);
+    color: hsla(125, 48%, 48%, 1);
+    font-style: italic;
+    
+}
+
+#results .blossom-buds {
+    background-color: hsla(125, 48%, 48%, .25);
+    color:hsla(0, 57%, 60%, 1);
+    font-weight: bolder;
+    font-style: italic;
+}
+
 footer, nav.navbar {
     background-color: var(--rc-primary-color);
     color: var(--rc-light-color);
