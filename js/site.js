@@ -13,7 +13,7 @@ function getValues() {
     // get Stop Value 
     let stopValue = document.getElementById('stopValue').value;
 
-    let colNum = 2;
+    let colNum = 3;
 
     // change string values to number
     blossomValue = parseInt(blossomValue);
