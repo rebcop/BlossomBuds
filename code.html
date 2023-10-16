@@ -57,13 +57,13 @@
                         <a class="nav-link" href="https://github.com/rebcop/BlossomBuds">The Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://magical-bunny-4b3c2b.netlify.app/">Portfolio</a>
+                        <a class="nav-link" href="https://rebcop.dev/">Portfolio</a>
                     </li>
                     <li class="nav-item">
                         <!-- CHANGE ME TO THE DEPLOYED BLOG PROJECT -->
                         <!-- NOTE: it would be a great idea to write a blog and
                         link here -->
-                        <a class="nav-link" href="https://rebcop.dev">Blog</a>
+                        <a class="nav-link" href="">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -76,28 +76,161 @@
             <div class="col-12 col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-js">
-function displayMessage() {
-    // get the text out of our input and assign it to a variable
-    let msg = document.getElementById('message').value;
+                        function getValues() {
 
-    Swal.fire(
-        {
-            backdrop: false,
-            title: 'Blossom Buds',
-            text: msg, // <-- replace this text with that variable
-        }
-    );
-}
+                            // get the Blossom Value input
+                            let blossomValue = document.getElementById('blossomValue').value; // gets value as a string
+                        
+                            // get the Buds Value input
+                            let budsValue = document.getElementById('budsValue').value; // gets value as a string
+                        
+                            // get the Start Value input
+                            let startValue = document.getElementById('startValue').value; // gets value as a string
+                        
+                            // get the Stop Value input
+                            let stopValue = document.getElementById('stopValue').value; // gets value as a string
+                        
+                            // change all string inputs to numbers
+                            blossomValue = parseInt(blossomValue);
+                            budsValue = parseInt(budsValue);
+                            startValue = parseInt(startValue);
+                            stopValue = parseInt(stopValue);
+                        
+                            // check if inputs recieved are what is expected
+                            if ( Number.isInteger(blossomValue) && Number.isInteger(budsValue) 
+                                && Number.isInteger(startValue) && Number.isInteger(stopValue) 
+                                && startValue &lt;= stopValue && startValue &gt;= -9999 
+                                && stopValue &lt;= 9999 ) {
+                                
+                                // get generated values based on inputs
+                                let generatedValues = generateValues(blossomValue, budsValue, startValue, stopValue);
+                                
+                                displayValues(generatedValues);
+
+                            } else {
+                                // Something is wrong
+                                Swal.fire ({
+                                    icon: 'error',
+                                    backdrop: false,
+                                    title: 'Oops!',
+                                    text: 'Please enter valid integers, with a Stop Value less than \
+                                    the Start Value. Start and Stop Values can only be between and \
+                                    including -9,999 and 9,999.',
+                                    confirmButtonColor: '#cd6a6a'
+                                });
+                            }
+                        }
+                        
+                        // generate values based on the input from user
+                        function generateValues(blossomValue, budsValue, startValue, stopValue) {
+                        
+                            // declare variable to hold generated values
+                            let generatedValues = [];
+                        
+                            // generate values from stopValue to startValue
+                            for (let n = startValue; n &lt;= stopValue; n++) {
+                                
+                                // check each value
+                                // if value is a multiple of blossomValue and budsValue
+                                if (n % blossomValue == 0 && n % budsValue == 0) {
+                        
+                                    // add "BlossomBuds" to the array
+                                    generatedValues.push('BlossomBuds');
+                        
+                                // if value is a multiple of blossomValue
+                                } else if ( n % blossomValue == 0) {
+                        
+                                    // add "Blossom" to the array
+                                    generatedValues.push('Blossom');
+                        
+                                // if value is a multiple of budsValue
+                                } else if ( n % budsValue == 0 ) {
+                        
+                                    // add "Buds" into array
+                                    generatedValues.push('Buds');
+                        
+                                } else {
+                                    // value into array
+                                    generatedValues.push(n);
+                                }
+                            } 
+                            return generatedValues;
+                        }
+                        
+                        // display values back to user
+                        function displayValues(generatedValues) {
+                        
+                            // declare variable to hold content to be displayed
+                            let blossomBudsHtml = '';
+                        
+                        
+                            // Add each generated value with html needed to make cols to blossomBudsHtml
+                            for (let i = 0; i &lt; generatedValues.length; i++) {
+                        
+                                // declare variable for styling element as needed
+                                let styleClass = '';
+                        
+                                // if value is 'BlossomBuds' assign class 'blossom-buds'
+                                if ( generatedValues[i] == 'BlossomBuds') {
+                        
+                                    styleClass = 'blossom-buds';
+                        
+                                    generatedValues[i] = `&lt;span>Buds&lt;/span&gt;&lt;i class="bi bi-flower3"&gt;&lt;/i&gt;`;
+                        
+                                // if value is 'Blossom' assign class 'blossom'
+                                } else if ( generatedValues[i] == 'Blossom' ) {
+                        
+                                    styleClass = 'blossom';
+                        
+                                    generatedValues[i] = `&lt;i class="bi bi-flower3"&gt;&lt;/i&gt;`;
+                        
+                                    // if value is 'Buds' assign class 'buds'
+                                } else if ( generatedValues[i] == 'Buds' ) {
+                        
+                                    styleClass = 'buds';
+                        
+                                // for everything else assign class 'number'
+                                } else {
+                        
+                                    styleClass = 'number';
+                                }
+                                blossomBudsHtml += `&lt;div class="col-1 mx-1 d-flex justify-content-center \
+                                                    align-items-center ${styleClass}"&gt;${generatedValues[i]}&lt;/div&gt;`;
+                            }
+                            // reassign contents of HTML to generatedValues with HTML accordingly
+                            document.getElementById('results').innerHTML = blossomBudsHtml;
+                        }
                     </code>
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
                 <!-- Explain your code here! This is the trick, this is what I learned,
                 this is how it functions -->
-                <p>The code is structured in one function</p>
+                <p>Blossom Buds was created with the following three functions.</p>
                 <p>
-                    <code>displayMessage</code> displays a sweetalert
-                    when the button is pressed.
+                    <code>getValues</code> kicks everything off. When the "Blossom Buds!"
+                    button is pressed, it grabs the inputs from the user by accessing the <span>DOM</span>, and changes
+                    the data type of each input to integer. It also uses an <span>if-else statement</span> with
+                    <span>boolean logic</span> to check if the inputs are what is expected. If the inputs
+                    are good, it continues to execute <code>generateValues</code>
+                    and <code>displayValues</code>. If not, a <span>sweetalert</span> is displayed
+                    notifying the user something is wrong with the inputs.
+                </p>
+                <p>
+                    <code>generateValues</code> uses a <span>for loop</span> to push values into an array
+                    based on the user input for the Start and Stop Values. An <span>if-else statement</span>
+                    inside the loop is used to determine the value that should be pushed to the array
+                    based on the user input for the Blossom and Bud Values. This function returns
+                    the final array with generated values.
+
+                </p>
+                <p>
+                    <code>displayValues</code> uses a <span>for loop</span> to string together the HTML
+                    needed to display the generated values back to the user. An <span>if-else statement</span>
+                    inside the loop is used to determine what <span>CSS</span> class should be added to each HTML
+                    string.
+                    Once the HTML block is created, with some <span>DOM manipulation</span> the HTML block
+                    onto the page for the user to see.
                 </p>
             </div>
         </div>

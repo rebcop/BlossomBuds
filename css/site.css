@@ -168,6 +168,16 @@ footer .bi:hover {
 
 /* #endregion App */
 
+
+/* #region The Code */
+
+p span {
+    background-color: #e2e3e5;
+    padding: 0 .5rem;
+}
+
+/* #endregion The Code */
+
 /* #region Modify Bootstrap Components */
 .btn-outline-primary {
     --bs-btn-color: var(--rc-theme-900);

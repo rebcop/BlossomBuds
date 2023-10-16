@@ -20,7 +20,10 @@ function getValues() {
     stopValue = parseInt(stopValue);
 
     // check if inputs recieved are what is expected
-    if ( Number.isInteger(blossomValue) && Number.isInteger(budsValue) && Number.isInteger(startValue) && Number.isInteger(stopValue) && startValue <= stopValue && startValue >= -9999 && stopValue <= 9999 ) {
+    if ( Number.isInteger(blossomValue) && Number.isInteger(budsValue) 
+        && Number.isInteger(startValue) && Number.isInteger(stopValue) 
+        && startValue <= stopValue && startValue >= -9999 
+        && stopValue <= 9999 ) {
         
         // get generated values based on inputs
         let generatedValues = generateValues(blossomValue, budsValue, startValue, stopValue);
@@ -32,7 +35,8 @@ function getValues() {
             icon: 'error',
             backdrop: false,
             title: 'Oops!',
-            text: 'Please enter valid integers, with a Stop Value less than the Start Value. Start and Stop Values can only be between and including -9,999 and 9,999.',
+            text: 'Please enter valid integers, with a Stop Value less than the Start Value. \
+                Start and Stop Values can only be between and including -9,999 and 9,999.',
             confirmButtonColor: '#cd6a6a'
         })
     }
@@ -58,7 +62,7 @@ function generateValues(blossomValue, budsValue, startValue, stopValue) {
         // if value is a multiple of blossomValue
         } else if ( n % blossomValue == 0) {
 
-            // aadd "Blossom" to the array
+            // add "Blossom" to the array
             generatedValues.push('Blossom');
 
         // if value is a multiple of budsValue
@@ -95,30 +99,31 @@ function displayValues(generatedValues) {
         // if value is 'BlossomBuds' assign class 'blossom-buds'
         if ( generatedValues[i] == 'BlossomBuds') {
 
-            styleClass = 'd-flex justify-content-center align-items-center blossom-buds';
+            styleClass = 'blossom-buds';
 
             generatedValues[i] = `<span>Buds</span><i class="bi bi-flower3"></i>`;
 
         // if value is 'Blossom' assign class 'blossom'
         } else if ( generatedValues[i] == 'Blossom' ) {
 
-            styleClass = 'd-flex justify-content-center align-items-center blossom';
+            styleClass = 'blossom';
 
             generatedValues[i] = `<i class="bi bi-flower3"></i>`;
 
             // if value is 'Buds' assign class 'buds'
         } else if ( generatedValues[i] == 'Buds' ) {
 
-            styleClass = 'd-flex justify-content-center align-items-center buds';
+            styleClass = 'buds';
 
         // for everything else assign class 'number'
         } else {
 
-            styleClass = 'd-flex justify-content-center align-items-center number';
+            styleClass = 'number';
 
         }
 
-        blossomBudsHtml += `<div class="col-1 mx-1 ${styleClass}">${generatedValues[i]}</div>`;
+        blossomBudsHtml += `<div class="col-1 mx-1 d-flex justify-content-center \
+                            align-items-center ${styleClass}">${generatedValues[i]}</div>`;
 
     }
 
