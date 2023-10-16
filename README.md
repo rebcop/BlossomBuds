@@ -22,7 +22,7 @@ Desktop Web App Screenshot:
 ![Desktop Screenshot](./img/desktop-screenshot.png)
 
 Mobile Web App Screenshot:
-![Mobile Screenshot](./img/iphone-screenshot.JPG)
+<img src="./img/iphone-screenshot.JPG" alt="Mobile Screenshot" width="25%" height="auto">
 
 ### Links
 
@@ -44,7 +44,7 @@ Mobile Web App Screenshot:
 
 1. Be clear about the purpose of the variable.
 
-This replaces the variable used by the for loop with another value which doesn't allow the for loop to function as expected when the number is replaced with a string.
+INCORRECT | This replaces the variable used by the for loop with another value which doesn't allow the for loop to function as expected when the number is replaced with a string.
 ```js
 // generate values from stopValue to startValue
 for (let n = startValue; n <= stopValue; n++) {
@@ -75,8 +75,9 @@ for (let n = startValue; n <= stopValue; n++) {
     }
   generatedValues.push(n);
 }
+```
 
-This correctly pushes the value into the array without messing with the variable used by the for loop. Another option is to declare another variable before the if-else statement and push that variable into the array.
+CORRECT | This correctly pushes the value into the array without messing with the variable used by the for loop. Another option is to declare another variable before the if-else statement and push that variable into the array.
 ```js
 // generate values from stopValue to startValue
 for (let n = startValue; n <= stopValue; n++) {
@@ -111,14 +112,14 @@ for (let n = startValue; n <= stopValue; n++) {
 
 2. If you use innerHTML to get the contents of an element and assign it to a variable, you will need to reassign it back to the DOM otherwise you're just replacing the string in the variable you retrieved with another string.
 
-For example, this doesn't display the new content on the page:
+INCORRECT | For example, this doesn't display the new content on the page:
 ```js
 // reassign contents of HTML to generatedValues with HTML accordingly
 let rowHtml = document.getElementById('results').innerHTML;
 rowHtml = blossomBudsHtml;    
 ```
 
-This displays the new content on the page:
+CORRECT | This displays the new content on the page:
 ```js
 // reassign contents of HTML to generatedValues with HTML accordingly
     document.getElementById('results').innerHTML = blossomBudsHtml;
