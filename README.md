@@ -6,7 +6,7 @@ See the Buds Blossom! Display the numbers 1-100. If a number is divisible by the
 
 - [Overview](#overview)
   - [Screenshot](#screenshot)
-  - [Links](#links)a
+  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -22,7 +22,7 @@ Desktop Web App Screenshot:
 ![Desktop Screenshot](./img/desktop-screenshot.png)
 
 Mobile Web App Screenshot:
-![Mobile Screenshot](./img/iphone-screenshot.jpg)
+![Mobile Screenshot](./img/iphone-screenshot.JPG)
 
 ### Links
 
@@ -140,4 +140,4 @@ This displays the new content on the page:
 ## Author
 
 - Check out my portfolio - [Rebecca Copeland](https://rebcop.dev/)
-- Message Me - [@rebcop](https://www.linkedin.com/in/rebcop/)
+- Message Me - [LinkedIn](https://www.linkedin.com/in/rebcop/)
