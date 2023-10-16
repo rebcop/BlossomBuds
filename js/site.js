@@ -95,30 +95,30 @@ function displayValues(generatedValues) {
         // if value is 'BlossomBuds' assign class 'blossom-buds'
         if ( generatedValues[i] == 'BlossomBuds') {
 
-            styleClass = 'col-1 d-flex justify-content-center align-items-center blossom-buds';
+            styleClass = 'd-flex justify-content-center align-items-center blossom-buds';
 
             generatedValues[i] = `<span>Buds</span><i class="bi bi-flower3"></i>`;
 
         // if value is 'Blossom' assign class 'blossom'
         } else if ( generatedValues[i] == 'Blossom' ) {
 
-            styleClass = 'col-1 d-flex justify-content-center align-items-center blossom';
+            styleClass = 'd-flex justify-content-center align-items-center blossom';
 
             generatedValues[i] = `<i class="bi bi-flower3"></i>`;
 
             // if value is 'Buds' assign class 'buds'
         } else if ( generatedValues[i] == 'Buds' ) {
 
-            styleClass = 'col-1 d-flex justify-content-center align-items-center buds';
+            styleClass = 'd-flex justify-content-center align-items-center buds';
 
         // for everything else assign class 'number'
         } else {
 
-            styleClass = 'col-1 d-flex justify-content-center align-items-center number';
+            styleClass = 'd-flex justify-content-center align-items-center number';
 
         }
 
-        blossomBudsHtml += `<div class="col mx-1 ${styleClass}">${generatedValues[i]}</div>`;
+        blossomBudsHtml += `<div class="col-1 mx-1 ${styleClass}">${generatedValues[i]}</div>`;
 
     }
 
