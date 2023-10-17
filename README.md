@@ -125,6 +125,8 @@ Mobile Web App Screenshot:
     // reassign contents of HTML to generatedValues with HTML accordingly
         document.getElementById('results').innerHTML = blossomBudsHtml;
     ```
+3. Even though parameters can be changed in a function, better practice to adopt may be to believe they can't be changed.
+
 
 ### Continued development
 
