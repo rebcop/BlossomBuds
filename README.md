@@ -1,3 +1,4 @@
+![BlossomBudsLogo](./img/BlossomBuds-Sunset-400.svg)
 # BlossomBuds - A Coding Challenge
 Checkout FizzBuzz like you've never seen before in Blossom Buds!
 See the Buds Blossom! Display the numbers 1-100. If a number is divisible by the Blossom Value, a Blossom will be displayed. If a number is divisible by the Buds value, "Buds" will be displayed. If a number is divisible by both values, you'll see "Buds" Blossom!
