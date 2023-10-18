@@ -11,7 +11,6 @@ See the Buds Blossom! Display the numbers 1-100. If a number is divisible by the
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -129,12 +128,6 @@ Mobile Web App Screenshot:
     ```
     
 3. Even though parameters can be changed in a function, better practice to adopt may be to believe they can't be changed.
-
-
-### Continued development
-
-- When to use "align-content", "align-items", and "justify-content" with Bootstrap
-- How to deal with hover effects when translating to mobile
 
 ### Useful resources
 
