@@ -27,8 +27,8 @@ Mobile Web App Screenshot:
 
 ### Links
 
-- Live Site URL: <a href="https://fanciful-bublanina-1545ce.netlify.app/" target="_blank">Netlify</a>
-- Repo URL: <a href="https://github.com/rebcop/BlossomBuds" target="_blank">Github Repo</a>
+- Live Site URL: [Netlify](https://fanciful-bublanina-1545ce.netlify.app/)
+- Repo URL: [Github Repo](https://github.com/rebcop/BlossomBuds)
 
 ## My process
 
@@ -123,8 +123,10 @@ Mobile Web App Screenshot:
     CORRECT | This displays the new content on the page:
     ```js
     // reassign contents of HTML to generatedValues with HTML accordingly
-        document.getElementById('results').innerHTML = blossomBudsHtml;
+    let rowHtml = document.getElementById('results');
+    rowHtml.innerHTML = blossomBudsHtml;
     ```
+    
 3. Even though parameters can be changed in a function, better practice to adopt may be to believe they can't be changed.
 
 
@@ -136,9 +138,7 @@ Mobile Web App Screenshot:
 ### Useful resources
 
 - [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-
 - [W3 Schools](https://www.w3schools.com/js/default.asp)
-
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## Author
