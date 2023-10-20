@@ -104,7 +104,7 @@
                                 
                                 // get generated values based on inputs
                                 let generatedValues = generateValues(blossomValue, budsValue, startValue, stopValue);
-                                
+                            
                                 displayValues(generatedValues);
 
                             } else {
@@ -133,19 +133,16 @@
                                 // check each value
                                 // if value is a multiple of blossomValue and budsValue
                                 if (n % blossomValue == 0 && n % budsValue == 0) {
-                        
                                     // add "BlossomBuds" to the array
                                     generatedValues.push('BlossomBuds');
                         
                                 // if value is a multiple of blossomValue
                                 } else if ( n % blossomValue == 0) {
-                        
                                     // add "Blossom" to the array
                                     generatedValues.push('Blossom');
                         
                                 // if value is a multiple of budsValue
                                 } else if ( n % budsValue == 0 ) {
-                        
                                     // add "Buds" into array
                                     generatedValues.push('Buds');
                         
@@ -163,7 +160,6 @@
                             // declare variable to hold content to be displayed
                             let blossomBudsHtml = '';
                         
-                        
                             // Add each generated value with html needed to make cols to blossomBudsHtml
                             for (let i = 0; i &lt; generatedValues.length; i++) {
                         
@@ -172,28 +168,23 @@
                         
                                 // if value is 'BlossomBuds' assign class 'blossom-buds'
                                 if ( generatedValues[i] == 'BlossomBuds') {
-                        
                                     styleClass = 'blossom-buds';
-                        
                                     generatedValues[i] = `&lt;span>Buds&lt;/span&gt;&lt;i class="bi bi-flower3"&gt;&lt;/i&gt;`;
                         
                                 // if value is 'Blossom' assign class 'blossom'
                                 } else if ( generatedValues[i] == 'Blossom' ) {
-                        
                                     styleClass = 'blossom';
-                        
                                     generatedValues[i] = `&lt;i class="bi bi-flower3"&gt;&lt;/i&gt;`;
                         
                                     // if value is 'Buds' assign class 'buds'
                                 } else if ( generatedValues[i] == 'Buds' ) {
-                        
                                     styleClass = 'buds';
                         
                                 // for everything else assign class 'number'
                                 } else {
-                        
                                     styleClass = 'number';
                                 }
+
                                 blossomBudsHtml += `&lt;div class="col-1 mx-1 d-flex justify-content-center \
                                                     align-items-center ${styleClass}"&gt;${generatedValues[i]}&lt;/div&gt;`;
                             }
@@ -204,8 +195,13 @@
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
-                <!-- Explain your code here! This is the trick, this is what I learned,
-                this is how it functions -->
+                <h4>TL;DR</h4>
+                <p>
+                    In order to check for multiple cases where one of the cases is an instance
+                    where two of the other cases are true, that case needs to be checked first in 
+                    an <span>if-else statement</span>.
+                </p>
+                <h4>Code Explanation</h4>
                 <p>Blossom Buds was created with the following three functions.</p>
                 <p>
                     <code>getValues</code> kicks everything off. When the "Blossom Buds!"
@@ -220,18 +216,37 @@
                     <code>generateValues</code> uses a <span>for loop</span> to push values into an array
                     based on the user input for the Start and Stop Values. An <span>if-else statement</span>
                     inside the loop is used to determine the value that should be pushed to the array
-                    based on the user input for the Blossom and Bud Values. This function returns
+                    based on the user input for the Blossom and Bud Values. The statement checks first 
+                    if a number is divisible by the "Blossom Value" and the "Buds Value". If the number is not 
+                    divisible by both values then the <span>if-else statement</span> goes on to check each individually. 
+                    If the "Buds Value" and "Blossom Value" were checked before checking both values at the same time,
+                    it would never get to check if both cases are true. This function returns
                     the final array with generated values.
-
                 </p>
                 <p>
                     <code>displayValues</code> uses a <span>for loop</span> to string together the HTML
                     needed to display the generated values back to the user. An <span>if-else statement</span>
                     inside the loop is used to determine what <span>CSS</span> class should be added to each HTML
                     string.
-                    Once the HTML block is created, with some <span>DOM manipulation</span> the HTML block
+                    Once the <span>HTML</span> block is created, with some <span>DOM manipulation</span> the <span>HTML</span> block
                     onto the page for the user to see.
                 </p>
+
+                <h4>What I learned</h4>
+                <ul>
+                    <li>Be clear about the purpose of the variable.</li>
+                    <li>If you use <code>innerHTML</code> to get the contents of an element and assign it to a variable, you will
+                        need to reassign it back to the DOM otherwise you're just replacing the string in the variable
+                        you retrieved with another string.</li>
+                </ul>
+
+                <h4>Improvements</h4>
+                <ul>
+                    <li>Use vanilla <span>CSS</span> with <span>flex box</span> instead of <span>Bootstrap</span> rows and cols for the results</li>
+                    <li>Check to see if there is another way to display the blossoms bloooming on mobile where
+                        the user can see the blossoms blooming over and over again.
+                    </li>
+                </ul>
             </div>
         </div>
     </main>

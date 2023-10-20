@@ -1,3 +1,11 @@
+// createElement
+// classList
+// textContent
+// appendChild
+
+
+
+
 // get input values from the user
 function getValues() {
 

@@ -4,6 +4,10 @@
     /* colors */
     --rc-light-color: #dfe3e4;
     --rc-dark-color: #1b1b1b;
+    --rc-primary-color: hsl(0, 50%, 11%); /* RC Sunset Theme 900 */
+    --rc-secondary-color: hsl(0, 50%, 61%); /* RC Sunset Theme 400 */
+    --rc-heading-bg-color: #e2e3e5; /* Bootstrap Secondary Sub Color */
+    --rc-heading-color: #6c757d; /* Bootstrap Secondary Color */
 }
 
 
@@ -38,8 +42,8 @@ h2 {
 }
 
 h4 {
-    background-color: #e2e3e5;
-    color: #6c757d;
+    background-color: var(--rc-heading-bg-color);
+    color: var(--rc-heading-color);
     text-transform: uppercase;
     font-size: 1.5rem;
     letter-spacing: .1rem;
@@ -56,7 +60,7 @@ p {
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover {
-    color: var(--rc-theme-200);
+    color: var(--rc-secondary-color);
 }
 
 .navbar .navbar-brand {
@@ -64,7 +68,7 @@ p {
 }
 
 footer, nav.navbar {
-    background-color: var(--rc-theme-900);
+    background-color: var(--rc-primary-color);
     color: var(--rc-light-color);
 }
 
@@ -76,7 +80,7 @@ footer .bi {
 }
 
 footer .bi:hover {
-    color: var(--rc-theme-400);
+    color: var(--rc-secondary-color);
 }
 /* #endregion All Pages */
 
@@ -104,79 +108,16 @@ footer .bi:hover {
 
 /* #endregion Index */
 
-/* #region App */
+/* #region Code */
 
-#results .blossom-buds {
-    background-color: hsla(125, 48%, 48%, .25);
-    color: hsla(125, 48%, 48%, .75);
-    font-weight: bolder;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 1.5rem;
-    padding: 0rem;
-}
-
-#results .blossom-buds span {
-    font-size: 1rem;
-    transition: font-size 0.2s ease-out 0.3s;
-}
-
-#results:hover .blossom-buds span {
-    font-size: 0;
-    transition: font-size 0s ease-out 0s;
-}
-
-#results .blossom-buds i {
-    color: hsla(0, 57%, 60%, .75);
-    font-size: 0;
-    transition: font-size 0.4s ease-out;
-}
-
-#results:hover .blossom-buds i {
-    font-size: 2rem;
-    
-}
-
-#results .blossom {
-    /* background-color: hsla(0, 57%, 60%, .25); */
-    color: hsla(0, 57%, 60%, .75);
-    font-weight: bolder;
-    height: 3rem;
-    width: 3rem;
-    font-size: 2rem;
-    padding: 0rem;
-}
-
-#results .buds {
-    background-color: hsla(125, 48%, 48%, .25);
-    color: hsla(125, 48%, 48%, .75);
-    font-weight: bolder;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 1.5rem;
-    padding: 0rem;
-}
-
-#results .number {
-    background-color: hsla(125, 48%, 48%, .25);
-    color: hsla(125, 48%, 48%, 1);
-    width: 3rem;
-    height: 3rem;
-    border-radius: 1.5rem 0 1.5rem 0;
-    padding: 0rem;
-} 
-
-/* #endregion App */
-
-
-/* #region The Code */
-
-p span {
+p span,
+ul span {
     background-color: #e2e3e5;
     padding: 0 .5rem;
 }
 
-/* #endregion The Code */
+/* #endregion Code */
+
 
 /* #region Modify Bootstrap Components */
 .btn-outline-primary {
