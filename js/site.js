@@ -137,5 +137,6 @@ function displayValues(generatedValues) {
 
     // reassign contents of HTML to generatedValues with HTML accordingly
     document.getElementById('results').innerHTML = blossomBudsHtml;
+    document.getElementById('resultsHeading').classList.remove('invisible');
 
 }

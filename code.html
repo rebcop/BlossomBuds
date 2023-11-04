@@ -54,16 +54,16 @@
                     </li>
                     <li class="nav-item">
                         <!-- CHANGE ME TO THE REAL REPO LINK -->
-                        <a class="nav-link" href="https://github.com/rebcop/BlossomBuds">The Repo</a>
+                        <a class="nav-link" href="https://github.com/rebcop/BlossomBuds" target="_blank">The Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://rebcop.dev/">Portfolio</a>
+                        <a class="nav-link" href="https://rebcop.dev/" target="_blank">Portfolio</a>
                     </li>
                     <li class="nav-item">
                         <!-- CHANGE ME TO THE DEPLOYED BLOG PROJECT -->
                         <!-- NOTE: it would be a great idea to write a blog and
                         link here -->
-                        <a class="nav-link" href="">Blog</a>
+                        <a class="nav-link d-none" href="" target="_blank">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -198,7 +198,7 @@
                 <h4>TL;DR</h4>
                 <p>
                     In order to check for multiple cases where one of the cases is an instance
-                    where two of the other cases are true, that case needs to be checked first in 
+                    where two of the other cases are true, that case needs to be checked first in
                     an <span>if-else statement</span>.
                 </p>
                 <h4>Code Explanation</h4>
@@ -216,9 +216,9 @@
                     <code>generateValues</code> uses a <span>for loop</span> to push values into an array
                     based on the user input for the Start and Stop Values. An <span>if-else statement</span>
                     inside the loop is used to determine the value that should be pushed to the array
-                    based on the user input for the Blossom and Bud Values. The statement checks first 
-                    if a number is divisible by the "Blossom Value" and the "Buds Value". If the number is not 
-                    divisible by both values then the <span>if-else statement</span> goes on to check each individually. 
+                    based on the user input for the Blossom and Bud Values. The statement checks first
+                    if a number is divisible by the "Blossom Value" and the "Buds Value". If the number is not
+                    divisible by both values then the <span>if-else statement</span> goes on to check each individually.
                     If the "Buds Value" and "Blossom Value" were checked before checking both values at the same time,
                     it would never get to check if both cases are true. This function returns
                     the final array with generated values.
@@ -228,23 +228,26 @@
                     needed to display the generated values back to the user. An <span>if-else statement</span>
                     inside the loop is used to determine what <span>CSS</span> class should be added to each HTML
                     string.
-                    Once the <span>HTML</span> block is created, with some <span>DOM manipulation</span> the <span>HTML</span> block
+                    Once the <span>HTML</span> block is created, with some <span>DOM manipulation</span> the
+                    <span>HTML</span> block
                     onto the page for the user to see.
                 </p>
 
                 <h4>What I learned</h4>
                 <ul>
-                    <li>Be clear about the purpose of the variable.</li>
-                    <li>If you use <code>innerHTML</code> to get the contents of an element and assign it to a variable, you will
+                    <li>Be clear about the purpose of the variable</li>
+                    <li>If you use <code>innerHTML</code> to get the contents of an element and assign it to a variable,
+                        you will
                         need to reassign it back to the DOM otherwise you're just replacing the string in the variable
-                        you retrieved with another string.</li>
+                        you retrieved with another string</li>
                 </ul>
 
                 <h4>Improvements</h4>
                 <ul>
-                    <li>Use vanilla <span>CSS</span> with <span>flex box</span> instead of <span>Bootstrap</span> rows and cols for the results</li>
+                    <li>Use vanilla <span>CSS</span> with <span>flex box</span> instead of <span>Bootstrap</span> rows
+                        and cols for the results</li>
                     <li>Check to see if there is another way to display the blossoms bloooming on mobile where
-                        the user can see the blossoms blooming over and over again.
+                        the user can see the blossoms blooming over and over again
                     </li>
                 </ul>
             </div>
@@ -259,7 +262,8 @@
                     &copy; 2023 Rebecca Copeland
                 </div>
                 <div class="col text-center">
-                    <img src="/img/Rebecca-Copeland-full-logo-white.svg" height="40" />
+                    <a href="https://rebcop.dev/" target="_blank"><img src="/img/Rebecca-Copeland-full-logo-white.svg"
+                            height="40" /></a>
                 </div>
                 <div class="col text-center text-lg-end">
                     <a href="https://www.linkedin.com/in/rebcop/"><i class="bi bi-linkedin"></i></a>
