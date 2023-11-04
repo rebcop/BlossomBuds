@@ -11,6 +11,7 @@ See the Buds Blossom! Display the numbers 1-100. If a number is divisible by the
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+  - [Possible Improvements](#possible-improvements)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -128,6 +129,11 @@ Mobile Web App Screenshot:
     ```
     
 3. Even though parameters can be changed in a function, better practice to adopt may be to believe they can't be changed.
+
+### Possible Improvements
+1. Use vanilla CSS with flex box instead of Bootstrap rows and cols for the results
+
+2. Check to see if there is another way to display the blossoms bloooming on mobile where the user can see the blossoms blooming over and over again.
 
 ### Useful resources
 
